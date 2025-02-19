@@ -161,7 +161,7 @@ async function dersSaatiSec(button) {
                     <span class="ogrenci-no">${ogrenci.ogrenci_no}</span>
                     <span class="ogrenci-ad">${ogrenci.ogrenci_ad_soyad}</span>
                 </div>
-                <button class="durum-button geldi" onclick="toggleDurum(this)">
+                <button class="durum-button geldi" onclick="toggleDurum(this)" data-ogrenci-no="${ogrenci.ogrenci_no}">
                     <i class="fas fa-check"></i> GELDİ
                 </button>
             </li>
@@ -191,8 +191,11 @@ async function yoklamaKaydet() {
     const sinif = document.getElementById('seciliSinif').textContent;
     const dersSaati = document.getElementById('seciliDersSaati').textContent;
     const ogretmen = document.getElementById('seciliOgretmen').textContent;
+    const tarih = document.getElementById('seciliTarih').textContent;
+    
+    // Sadece gelmeyen öğrencilerin numaralarını al
     const gelmeyenOgrenciler = Array.from(document.querySelectorAll('.gelmedi'))
-        .map(button => button.parentElement.textContent.split(' - ')[0].trim())
+        .map(button => button.getAttribute('data-ogrenci-no'))
         .join('-');
 
     try {
@@ -201,7 +204,8 @@ async function yoklamaKaydet() {
             .select('*')
             .eq('sinif', sinif)
             .eq('ders_saati', dersSaati)
-            .eq('ogretmen', ogretmen);
+            .eq('ogretmen', ogretmen)
+            .eq('tarih', tarih);
 
         if (error) throw error;
 
@@ -220,7 +224,13 @@ async function yoklamaKaydet() {
         } else {
             const { error: insertError } = await supabaseClient
                 .from('yoklama')
-                .insert([{ sinif, ders_saati: dersSaati, ogretmen, gelmeyen_ogrenciler: gelmeyenOgrenciler }]);
+                .insert([{ 
+                    sinif, 
+                    ders_saati: dersSaati, 
+                    ogretmen, 
+                    tarih,
+                    gelmeyen_ogrenciler: gelmeyenOgrenciler 
+                }]);
 
             if (insertError) throw insertError;
 
