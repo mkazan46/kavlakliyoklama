@@ -224,7 +224,7 @@ button:hover::after {
 }
 
 .ogrenci-listesi li {
-    padding: 5px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #e1e1e1;
     display: flex;
     justify-content: space-between;
@@ -241,6 +241,9 @@ button:hover::after {
     transition: all 0.3s ease;
     background-color: #4CAF50;
     color: white;
+    width: 80px;
+    text-align: center;
+    margin-left: 10px;
 }
 
 .gelmedi {
