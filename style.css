@@ -216,23 +216,6 @@ button:hover::after {
     margin-top: 20px;
     text-align: left;
     color: #0a2647;
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-.ogrenci-listesi::-webkit-scrollbar {
-    width: 8px;
-}
-
-.ogrenci-listesi::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.ogrenci-listesi::-webkit-scrollbar-thumb {
-    background: #205295;
-    border-radius: 10px;
 }
 
 .ogrenci-listesi ul {
@@ -241,71 +224,28 @@ button:hover::after {
 }
 
 .ogrenci-listesi li {
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
+    padding: 5px 0;
+    border-bottom: 1px solid #e1e1e1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.95em;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.ogrenci-listesi li:hover {
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transform: translateY(-2px);
+    font-size: 0.85em;
 }
 
 .durum-button {
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 2px 8px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 0.85em;
+    font-size: 0.7em;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: none;
-    min-width: 100px;
-    text-align: center;
-}
-
-.durum-button.geldi {
     background-color: #4CAF50;
     color: white;
-    box-shadow: 0 2px 4px rgba(76,175,80,0.3);
 }
 
-.durum-button.gelmedi {
+.gelmedi {
     background-color: #f44336;
     color: white;
-    box-shadow: 0 2px 4px rgba(244,67,54,0.3);
-}
-
-.durum-button:hover {
-    transform: scale(1.05);
-}
-
-.durum-button.geldi:hover {
-    background-color: #43a047;
-}
-
-.durum-button.gelmedi:hover {
-    background-color: #e53935;
-}
-
-.ogrenci-bilgi {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.ogrenci-no {
-    font-weight: 600;
-    color: #205295;
-    min-width: 60px;
 }
 
 .secim-bilgisi {
@@ -324,14 +264,5 @@ button:hover::after {
     }
     .container {
         padding: 15px;
-    }
-    .ogrenci-listesi li {
-        padding: 10px;
-        font-size: 0.85em;
-    }
-    .durum-button {
-        padding: 6px 12px;
-        min-width: 80px;
-        font-size: 0.8em;
     }
 }
