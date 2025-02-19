@@ -152,7 +152,7 @@ async function dersSaatiSec(button) {
         const ogrenciListesi = document.getElementById('ogrenciListesi');
         ogrenciListesi.innerHTML = '<ul>' + data.map(ogrenci => `
             <li>
-                ${ogrenci.ogrenci_no} - ${ogrenci.ogrenci_ad_soyad}
+                <span style="flex: 1;">${ogrenci.ogrenci_no} - ${ogrenci.ogrenci_ad_soyad}</span>
                 <button class="durum-button geldi" onclick="toggleDurum(this)">GELDİ</button>
             </li>
         `).join('') + '</ul>';
@@ -181,8 +181,9 @@ async function yoklamaKaydet() {
     const sinif = document.getElementById('seciliSinif').textContent;
     const dersSaati = document.getElementById('seciliDersSaati').textContent;
     const ogretmen = document.getElementById('seciliOgretmen').textContent;
+    const tarih = document.getElementById('seciliTarih').textContent;
     const gelmeyenOgrenciler = Array.from(document.querySelectorAll('.gelmedi'))
-        .map(button => button.parentElement.textContent.split(' - ')[0])
+        .map(button => button.parentElement.textContent.split(' - ')[0].trim())
         .join('-');
 
     try {
@@ -191,7 +192,8 @@ async function yoklamaKaydet() {
             .select('*')
             .eq('sinif', sinif)
             .eq('ders_saati', dersSaati)
-            .eq('ogretmen', ogretmen);
+            .eq('ogretmen', ogretmen)
+            .eq('tarih', tarih);
 
         if (error) throw error;
 
@@ -210,7 +212,13 @@ async function yoklamaKaydet() {
         } else {
             const { error: insertError } = await supabaseClient
                 .from('yoklama')
-                .insert([{ sinif, ders_saati: dersSaati, ogretmen, gelmeyen_ogrenciler: gelmeyenOgrenciler }]);
+                .insert([{ 
+                    sinif, 
+                    ders_saati: dersSaati, 
+                    ogretmen, 
+                    tarih,
+                    gelmeyen_ogrenciler: gelmeyenOgrenciler 
+                }]);
 
             if (insertError) throw insertError;
 
