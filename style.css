@@ -240,11 +240,14 @@ button:hover::after {
     font-size: 0.7em;
     font-weight: 600;
     transition: all 0.3s ease;
-    background-color: #4CAF50;
-    color: white;
     width: 80px;
     text-align: center;
     margin-left: 10px;
+}
+
+.geldi {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .gelmedi {
