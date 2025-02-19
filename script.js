@@ -150,7 +150,8 @@ async function dersSaatiSec(button) {
         const { data, error } = await supabaseClient
             .from('ogrencilistesi')
             .select('*')
-            .eq('sinif_adi', secilenSinif);
+            .eq('sinif_adi', secilenSinif)
+            .order('ogrenci_no', { ascending: true });
 
         if (error) throw error;
 
