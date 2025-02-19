@@ -152,13 +152,8 @@ async function dersSaatiSec(button) {
         const ogrenciListesi = document.getElementById('ogrenciListesi');
         ogrenciListesi.innerHTML = '<ul>' + data.map(ogrenci => `
             <li>
-                <div class="ogrenci-bilgi">
-                    <span class="ogrenci-no">${ogrenci.ogrenci_no}</span>
-                    <span class="ogrenci-ad">${ogrenci.ogrenci_ad_soyad}</span>
-                </div>
-                <button class="durum-button geldi" onclick="toggleDurum(this)">
-                    <i class="fas fa-check"></i> GELDİ
-                </button>
+                ${ogrenci.ogrenci_no} - ${ogrenci.ogrenci_ad_soyad}
+                <button class="durum-button geldi" onclick="toggleDurum(this)">GELDİ</button>
             </li>
         `).join('') + '</ul>';
 
@@ -174,11 +169,11 @@ function toggleDurum(button) {
     if (button.classList.contains('geldi')) {
         button.classList.remove('geldi');
         button.classList.add('gelmedi');
-        button.innerHTML = '<i class="fas fa-times"></i> GELMEDİ';
+        button.textContent = 'GELMEDİ';
     } else {
         button.classList.remove('gelmedi');
         button.classList.add('geldi');
-        button.innerHTML = '<i class="fas fa-check"></i> GELDİ';
+        button.textContent = 'GELDİ';
     }
 }
 
