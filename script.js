@@ -196,6 +196,7 @@ async function yoklamaKaydet() {
     // Sadece gelmeyen öğrencilerin numaralarını al
     const gelmeyenOgrenciler = Array.from(document.querySelectorAll('.gelmedi'))
         .map(button => button.getAttribute('data-ogrenci-no'))
+        .filter(no => no) // null veya undefined değerleri filtrele
         .join('-');
 
     try {
