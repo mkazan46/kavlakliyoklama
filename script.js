@@ -39,7 +39,6 @@ function ogretmenSecildi() {
     if (select.value !== "") {
         tcNoAlani.style.display = 'block';
         errorMessage.style.display = 'none';
-        document.activeElement.blur();
     } else {
         tcNoAlani.style.display = 'none';
     }
@@ -59,8 +58,6 @@ async function girisKontrol() {
         errorMessage.style.display = 'block';
         return;
     }
-
-    document.activeElement.blur();
 
     try {
         const { data, error } = await supabaseClient
@@ -116,7 +113,6 @@ function sinifSec() {
     if (sinifSelect.value === "") {
         return;
     }
-    document.activeElement.blur();
     const secilenSinif = sinifSelect.options[sinifSelect.selectedIndex].text;
     document.getElementById('seciliSinif').textContent = secilenSinif;
     document.getElementById('sinifContainer').style.display = 'none';
@@ -131,7 +127,6 @@ function setDefaultDate() {
 
 function tarihSec() {
     const tarih = document.getElementById('tarihSec').value;
-    document.activeElement.blur();
     document.getElementById('seciliTarih').textContent = tarih;
     document.getElementById('tarihContainer').style.display = 'none';
     document.getElementById('dersSaatiContainer').style.display = 'block';
@@ -192,7 +187,7 @@ async function yoklamaKaydet() {
     const dersSaati = document.getElementById('seciliDersSaati').textContent;
     const ogretmen = document.getElementById('seciliOgretmen').textContent;
     const gelmeyenOgrenciler = Array.from(document.querySelectorAll('.gelmedi'))
-        .map(button => button.parentElement.textContent.split(' - ')[0].trim())
+        .map(button => button.parentElement.textContent.split(' - ')[0])
         .join('-');
 
     try {
@@ -253,10 +248,3 @@ function geriDonDersSaati() {
 }
 
 document.addEventListener('DOMContentLoaded', getOgretmenler);
-
-// Input alanlarına tıklandığında klavyeyi göster
-document.querySelectorAll('input, select').forEach(element => {
-    element.addEventListener('focus', function() {
-        this.removeAttribute('readonly');
-    });
-});
