@@ -158,7 +158,7 @@ async function dersSaatiSec(button) {
         ogrenciListesi.innerHTML = '<ul>' + data.map(ogrenci => `
             <li>
                 <div class="ogrenci-bilgi">
-                    <span class="ogrenci-no" data-no="${ogrenci.ogrenci_no}">${ogrenci.ogrenci_no}</span>
+                    <span class="ogrenci-no">${ogrenci.ogrenci_no}</span>
                     <span class="ogrenci-ad">${ogrenci.ogrenci_ad_soyad}</span>
                 </div>
                 <button class="durum-button geldi" onclick="toggleDurum(this)">
@@ -192,10 +192,7 @@ async function yoklamaKaydet() {
     const dersSaati = document.getElementById('seciliDersSaati').textContent;
     const ogretmen = document.getElementById('seciliOgretmen').textContent;
     const gelmeyenOgrenciler = Array.from(document.querySelectorAll('.gelmedi'))
-        .map(button => {
-            const ogrenciNo = button.closest('li').querySelector('.ogrenci-no').dataset.no;
-            return ogrenciNo;
-        })
+        .map(button => button.parentElement.textContent.split(' - ')[0].trim())
         .join('-');
 
     try {
