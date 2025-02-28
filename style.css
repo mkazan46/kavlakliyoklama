@@ -1,0 +1,2951 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+#ozelButonlarContainer button {
+    margin-bottom: 10px;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffffff, #e3e3e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titlePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse {
+    from {
+        text-shadow: 0 0 15px rgba(255,255,255,0.4);
+        transform: scale(1);
+    }
+    to {
+        text-shadow: 0 0 25px rgba(255,255,255,0.6);
+        transform: scale(1.02);
+    }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.3);
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 820px) {
+    .container {
+        max-width: 95%;
+    }
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.form-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1a237e;
+    font-weight: 500;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: #3949ab;
+}
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 1em;
+    color: #333;
+    background-color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233949ab' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5em;
+    max-height: 300px;
+}
+
+select option {
+    padding: 12px;
+    font-size: 1em;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+select option:hover {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+select:hover {
+    border-color: #3949ab;
+    box-shadow: 0 4px 12px rgba(57,73,171,0.15);
+}
+
+select:focus {
+    border-color: #3949ab;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(57,73,171,0.15);
+}
+
+select option:hover, select option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+select[multiple] {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+select[multiple] option {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select[multiple] option:last-child {
+    border-bottom: none;
+}
+
+select option:hover {
+    background-color: #e8eaf6;
+}
+
+select:focus, input:focus {
+    border-color: #3949ab;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(57,73,171,0.15);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(57,73,171,0.4);
+    background: linear-gradient(135deg, #283593 0%, #5c6bc0 100%);
+}
+
+/* Attendance button styles */
+button.geldi {
+    background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%) !important;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+button.geldi:hover {
+    background: linear-gradient(135deg, #388e3c 0%, #4caf50 100%) !important;
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+}
+
+button.gelmedi {
+    background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%) !important;
+    box-shadow: 0 4px 12px rgba(183, 28, 28, 0.3);
+}
+
+button.gelmedi:hover {
+    background: linear-gradient(135deg, #c62828 0%, #e53935 100%) !important;
+    box-shadow: 0 8px 20px rgba(183, 28, 28, 0.4);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+button i {
+    font-size: 1.1em;
+}
+
+.ders-saatleri {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.ders-saatleri-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.ders-saatleri button {
+    flex: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #3949ab;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.ders-saatleri button.selected {
+    background: #43a047;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(67,160,71,0.4);
+}
+
+/* Add active class styling for selected buttons */
+.ders-saatleri button.active {
+    background: #43a047;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(67,160,71,0.4);
+}
+
+.ogrenci-listesi {
+    margin-top: 20px;
+    color: #1a237e;
+}
+
+.ogrenci-listesi ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ogrenci-item {
+    padding: 10px;
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: background-color 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.ogrenci-item:hover {
+    background-color: rgba(57,73,171,0.05);
+}
+
+.ogrenci-item span {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.durum-btn {
+    padding: 4px 6px; /* Daha küçük padding değerleri */
+    border-radius: 6px;
+    font-size: 0.7em; /* Daha küçük font boyutu */
+    min-width: 65px; /* Sabit genişlik */
+    width: 65px; /* Sabit genişlik */
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Default button styling for GELDİ - green */
+#ogrenciListesi div:nth-child(1) > button,
+.durum-btn.geldi {
+    background-color: #4CAF50;
+    color: white;
+    text-shadow: 0 0 4px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(76,175,80,0.8), 0 0 20px rgba(76,175,80,0.4);
+    border: 1px solid #388E3C;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.durum-btn.gelmedi {
+    background-color: #f44336;
+    color: white;
+    text-shadow: 0 0 4px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(244,67,54,0.8), 0 0 20px rgba(244,67,54,0.4);
+    border: 1px solid #d32f2f;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.secim-bilgisi {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    color: #1a237e;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.secim-bilgisi span {
+    color: #3949ab;
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.auto-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.auto-notification.confirmation {
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+}
+
+.notification-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notification-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.notification-buttons button:first-child {
+    background-color: #2196F3;
+    color: white;
+}
+
+.notification-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-buttons button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.auto-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.auto-notification.confirmation {
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+}
+
+.notification-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notification-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.notification-buttons button:first-child {
+    background-color: #2196F3;
+    color: white;
+}
+
+.notification-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-buttons button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.auto-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.auto-notification.confirmation {
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+}
+
+.notification-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notification-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.notification-buttons button:first-child {
+    background-color: #2196F3;
+    color: white;
+}
+
+.notification-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-buttons button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.auto-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.auto-notification.confirmation {
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+}
+
+.notification-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notification-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.notification-buttons button:first-child {
+    background-color: #2196F3;
+    color: white;
+}
+
+.notification-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-buttons button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.auto-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.auto-notification.confirmation {
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+}
+
+.notification-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notification-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.notification-buttons button:first-child {
+    background-color: #2196F3;
+    color: white;
+}
+
+.notification-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-buttons button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+.auto-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.auto-notification.confirmation {
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+}
+
+.notification-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notification-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.notification-buttons button:first-child {
+    background-color: #2196F3;
+    color: white;
+}
+
+.notification-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-buttons button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.excel-style tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    table, .excel-style {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td, .excel-style th, .excel-style td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+select#ogretmenSelect {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3949ab #e1e1e1;
+}
+
+select#ogretmenSelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect::-webkit-scrollbar-thumb {
+    background: #3949ab;
+    border-radius: 4px;
+}
+
+select#ogretmenSelect option {
+    padding: 12px 16px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+select#ogretmenSelect option:last-child {
+    border-bottom: none;
+}
+
+select#ogretmenSelect option:hover,
+select#ogretmenSelect option:focus {
+    background-color: #e8eaf6;
+    color: #1a237e;
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .container {
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .secim-bilgisi {
+        font-size: 0.8em;
+        padding: 8px 12px;
+        width: 95%;
+    }
+    
+    .ders-saatleri-row {
+        gap: 4px;
+    }
+    
+    .ders-saatleri button {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85em;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    select, input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    
+    .ogrenci-item {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    
+    .durum-btn {
+        min-width: 60px;
+        padding: 4px 6px;
+        font-size: 0.75em;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.3s ease;
+}
+
+.excel-style {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-style th, .excel-style td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    min-width: 100px;
+}
+
+.excel-style th {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.excel-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
